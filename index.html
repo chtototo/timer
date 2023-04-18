@@ -16,16 +16,19 @@
         <p class="toch">:</p>
         <input id="seconds" type="text" onclick="clearValue('seconds')" value="00">
     </div>
-    <div class="setTime">
+    <div class="setTime" id="setTime">
         <button id="setTimeBtn" class="setTime" onclick="timer()">SET</button>
     </div>
-    <div id="timer" role="progressbar" aria-valuenow="--value" aria-valuemin="0" aria-valuemax="--value" style="--value:00"></div>
+    <div id="timer" role="progressbar" aria-valuenow="--value" aria-valuemin="0" aria-valuemax="--value" style="--value:00">0:0</div>
 </div>
 
 <script>
 function timer() {
+    document.getElementById('setTime').innerHTML=`<button id="setTimeBtn" class="setTime" onclick="timer() disabled">SET</button>`;
     const timer = document.getElementById('timer')
     let sec = Number(document.getElementById('minutes').value) * 60 + Number(document.getElementById('seconds').value);
+    document.getElementById('minutes').value='00'
+    document.getElementById('seconds').value='00'
     let i = sec+1;
     setInterval(() => {
         i--
