@@ -11,7 +11,7 @@
         <p class="txt">min</p>
         <p class="txt">sec</p>
     </div>
-    <div class="inp">
+    <div class="inp" id="inp">
         <input id="minutes" type="text" onclick="clearValue('minutes'), enter()" placeholder="00">
         <p class="toch">:</p>
         <input id="seconds" type="text" onclick="clearValue('seconds'), enter()" placeholder="00">
@@ -59,12 +59,20 @@ function enter() {
       if(e.which === 13){
       	e.preventDefault();
             timer();
+            document.getElementById('inp').innerHTML=`
+            <input id="minutes" type="text" onclick="" placeholder="00">
+            <p class="toch">:</p>
+            <input id="seconds" type="text" onclick="" placeholder="00">`
       }
     });
     input2.addEventListener('keypress', function(e){
       if(e.which === 13){
       	e.preventDefault();
             timer();
+            document.getElementById('inp').innerHTML=`
+            <input id="minutes" type="text" onclick="" placeholder="00">
+            <p class="toch">:</p>
+            <input id="seconds" type="text" onclick="" placeholder="00">`
       }
     });
 }
