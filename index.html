@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <title>TIMER</title>
+    <title id="title">TIMER</title>
 </head>
 <body>
 <div class="main" id="main">
@@ -19,7 +19,7 @@
     <div class="setTime" id="setTime">
         <button id="setTimeBtn" class="setTime" onclick="timer()">SET</button>
     </div>
-    <div id="timer" role="progressbar" aria-valuenow="--value" aria-valuemin="0" aria-valuemax="--value" style="--value:00">0:0</div>
+    <div id="timer" role="progressbar" aria-valuenow="--value" aria-valuemin="0" aria-valuemax="--value" style="--value:00">0:00</div>
 </div>
 
 <script>
@@ -38,8 +38,18 @@ function timer() {
             i = 0;
             location.reload()
         }
-        timer.innerText = Math.floor(i / 60) + ':' + i % 60
+        timer.innerText = Math.floor(i / 60) + ':' + timeStyle(i % 60);
+        let title = document.getElementById('title');
+        title.innerHTML =  `${Math.floor(i / 60) + ':' + timeStyle(i % 60)}`;
     }, 1000)
+}
+
+function timeStyle(time) {
+    if(Math.floor(time / 10) == 0) {
+        return '0' + time;
+    }else{
+        return time;
+    }
 }
 </script>
 
