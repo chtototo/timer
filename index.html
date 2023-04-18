@@ -12,9 +12,9 @@
         <p class="txt">sec</p>
     </div>
     <div class="inp">
-        <input id="minutes" type="text" onclick="clearValue('minutes')" value="00">
+        <input id="minutes" type="text" onclick="clearValue('minutes'), enter()" placeholder="00">
         <p class="toch">:</p>
-        <input id="seconds" type="text" onclick="clearValue('seconds')" value="00">
+        <input id="seconds" type="text" onclick="clearValue('seconds'), enter()" placeholder="00">
     </div>
     <div class="setTime" id="setTime">
         <button id="setTimeBtn" class="setTime" onclick="timer()">SET</button>
@@ -50,6 +50,23 @@ function timeStyle(time) {
     }else{
         return time;
     }
+}
+
+function enter() {
+    var input = document.querySelector('input[id="seconds"]');
+    var input2 = document.querySelector('input[id="minutes"]');
+    input.addEventListener('keypress', function(e){
+      if(e.which === 13){
+      	e.preventDefault();
+            timer();
+      }
+    });
+    input2.addEventListener('keypress', function(e){
+      if(e.which === 13){
+      	e.preventDefault();
+            timer();
+      }
+    });
 }
 </script>
 

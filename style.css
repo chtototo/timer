@@ -102,3 +102,7 @@ input {
 .setTime:active {
   background-color: rgb(0, 99, 199);
 }
+
+::placeholder {
+  color: black;
+}
