@@ -27,6 +27,7 @@ div[role="progressbar"] {
   font-family: Helvetica, Arial, sans-serif;
   font-size: calc(var(--size) / 5);
   color: var(--fg);
+  overflow: hidden;
 }
 
 
@@ -106,3 +107,4 @@ input {
 ::placeholder {
   color: black;
 }
+
