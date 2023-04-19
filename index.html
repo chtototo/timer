@@ -20,6 +20,8 @@
         <button id="setTimeBtn" class="setTime" onclick="timer()">SET</button>
     </div>
     <div id="timer" role="progressbar" aria-valuenow="--value" aria-valuemin="0" aria-valuemax="--value" style="--value:00">0:00</div>
+    <div class="aud" id="aud">
+    </div>
 </div>
 
 <script>
@@ -36,7 +38,12 @@ function timer() {
         timer.style = '--value:'+ value
         if(i <= 0) {
             i = 0;
-            location.reload()
+            document.getElementById('aud').innerHTML=`<audio id="audio" src="tic_tac_reveil.mp3" autoplay></audio>`;
+            setTimeout(() => {location.reload();}, 1500);
+            
+        }
+        if (i == 5) {
+            document.getElementById('aud').innerHTML=`<audio src="tic_tac_reveil.wav" autoplay></audio>`;
         }
         timer.innerText = Math.floor(i / 60) + ':' + timeStyle(i % 60);
         let title = document.getElementById('title');
